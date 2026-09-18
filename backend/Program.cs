@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // Register the QuoteService for dependency injection
-builder.Services.AddScoped<IQuoteService, QuoteService>();
+builder.Services.AddHttpClient<IQuoteService, QuoteService>();
 
 var app = builder.Build();
 

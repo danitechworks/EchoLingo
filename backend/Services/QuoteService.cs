@@ -1,23 +1,31 @@
 ﻿using EchoLingo.DTOs;
 using EchoLingo.Interfaces;
+using System.Net.Http.Json;
 
 namespace EchoLingo.Services
 {
     public class QuoteService : IQuoteService
     {
-        public QuoteResponseDto GetRandomQuote()
+        private readonly HttpClient _httpClient;
+
+        public QuoteService(HttpClient httpClient)
         {
-            var quotes = new List<QuoteResponseDto>
+            _httpClient = httpClient;
+        }
+        public async Task<QuoteResponseDto> GetRandomQuoteAsync()
+        {
+            var externalQuote = await _httpClient.GetFromJsonAsync<DummyJsonQuoteDto>("https://dummyjson.com/quotes/random");
+
+            if (externalQuote is null)
             {
-                new QuoteResponseDto { Text = "The only way to do great work is to love what you do.", Author = "Steve Jobs" },
-                new QuoteResponseDto { Text = "Life is what happens when you're busy making other plans.", Author = "John Lennon" },
-                new QuoteResponseDto { Text = "The purpose of our lives is to be happy.", Author = "Dalai Lama" },
-                new QuoteResponseDto { Text = "Get busy living or get busy dying.", Author = "Stephen King" },
-                new QuoteResponseDto { Text = "You have within you right now, everything you need to deal with whatever the world can throw at you.", Author = "Brian Tracy" }
+                throw new InvalidOperationException("The quote API returned no data.");
+            }
+
+            return new QuoteResponseDto
+            {
+                Text = externalQuote.Quote,
+                Author = externalQuote.Author
             };
-            var random = new Random();
-            var randomQuote = quotes[random.Next(quotes.Count)];
-            return randomQuote;
         }
     }
 }

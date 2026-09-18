@@ -4,6 +4,6 @@ namespace EchoLingo.Interfaces
 {
     public interface IQuoteService
     {
-        QuoteResponseDto GetRandomQuote();
+        Task<QuoteResponseDto> GetRandomQuoteAsync();
     }
 }
