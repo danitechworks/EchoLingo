@@ -1,4 +1,5 @@
 using EchoLingo.Services;
+using EchoLingo.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // Register the QuoteService for dependency injection
-builder.Services.AddScoped<QuoteService>();
+builder.Services.AddScoped<IQuoteService, QuoteService>();
 
 var app = builder.Build();
 

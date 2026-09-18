@@ -1,8 +1,9 @@
 ﻿using EchoLingo.DTOs;
+using EchoLingo.Interfaces;
 
 namespace EchoLingo.Services
 {
-    public class QuoteService
+    public class QuoteService : IQuoteService
     {
         public QuoteResponseDto GetRandomQuote()
         {

@@ -1,6 +1,7 @@
 ﻿using EchoLingo.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using EchoLingo.Services;
+using EchoLingo.Interfaces;
 
 namespace EchoLingo.Controllers
 {
@@ -8,9 +9,9 @@ namespace EchoLingo.Controllers
     [Route("api/quotes")] // sets the route for this controller to /api/quotes
     public class QuotesController : ControllerBase
     {
-        private readonly QuoteService _quoteService;
+        private readonly IQuoteService _quoteService;
 
-        public QuotesController(QuoteService quoteService)
+        public QuotesController(IQuoteService quoteService)
         {
             _quoteService = quoteService;
         }
