@@ -1,0 +1,6 @@
+@EchoLingo_HostAddress = http://localhost:5284
+
+GET {{EchoLingo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
