@@ -360,14 +360,23 @@
   /* Move the quote lower on tablets */
 @media (min-width: 769px) and (max-width: 1100px) {
   .quote-card {
-    top: 40%;
+    top: 60%;
   }
 }
 
 /* Move the quote lower on phones */
 @media (max-width: 768px) {
   .quote-card {
-    top: 60%;
+    top: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .desk-scene {
+    flex: none;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 941 / 1672;
   }
 }
 }
