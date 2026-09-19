@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import Navbar from "./components/TopNavbar";
+import { translations } from "./translations";
+import type { Language } from "./translations";
 
 function App() {
   const [quote, setQuote] = useState({
@@ -9,7 +11,7 @@ function App() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [targetLanguage, setTargetLanguage] = useState("en");
+  const [targetLanguage, setTargetLanguage] = useState<Language>("en");
   const [translatedText, setTranslatedText] = useState("");
   const [isDark, setIsDark] = useState(false);
 
@@ -69,6 +71,7 @@ function App() {
   return (
     <main className={`app ${isDark ? "dark" : ""}`}>
       <Navbar
+        text={translations[targetLanguage]}
         isDark={isDark}
         isLoading={isLoading}
         targetLanguage={targetLanguage}

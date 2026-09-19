@@ -1,17 +1,20 @@
 import lightLogo from "../assets/images/logo1.png";
 import darkLogo from "../assets/images/logo-dark.png";
+import type { InterfaceText, Language } from "../translations";
 
 type NavbarProps = {
+  text: InterfaceText;
+  targetLanguage: Language;
+  onLanguageChange: (value: Language) => void;
   isDark: boolean;
   isLoading: boolean;
-  targetLanguage: string;
 
   onToggleDark: () => void;
   onRandomQuote: () => void;
-  onLanguageChange: (value: string) => void;
 };
 
 function Navbar({
+  text,
   isDark,
   isLoading,
   targetLanguage,
@@ -32,40 +35,42 @@ function Navbar({
 
         <div className="navbar-controls">
           <button type="button" onClick={onRandomQuote} disabled={isLoading}>
-            {isLoading ? "Loading..." : "Random Quote"}
+            {isLoading ? text.loading : text.randomQuote}
           </button>
 
           <button type="button" disabled>
-            Search by Author
+            {text.searchAuthor}
           </button>
 
           <button type="button" disabled>
-            Search by Topic
+            {text.searchTopic}
           </button>
 
           <div className="language-menu">
             <select
-              aria-label="Select language"
+              aria-label={text.selectLanguage}
               value={targetLanguage}
               disabled={isLoading}
-              onChange={(event) => onLanguageChange(event.target.value)}
+              onChange={(event) =>
+                onLanguageChange(event.target.value as Language)
+              }
             >
               <option value="en">English</option>
-              <option value="sv">Swedish</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
+              <option value="sv">Svenska</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
             </select>
           </div>
 
           <button type="button" onClick={onToggleDark}>
-            {isDark ? "☀ Light" : "☾ Dark"}
+            {isDark ? "☀ " + text.lightMode : "☾ " + text.darkMode}
           </button>
         </div>
       </div>
 
       <div className="navbar-tagline">
-        <p>Words carry meaning beyond borders</p>
+        <p>{text.tagline}</p>
       </div>
     </nav>
   );
