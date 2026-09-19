@@ -10,6 +10,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [targetLanguage, setTargetLanguage] = useState("en");
   const [translatedText, setTranslatedText] = useState("");
+  const [isDark, setIsDark] = useState(false);
 
   async function generateQuote() {
     setIsLoading(true);
@@ -65,10 +66,12 @@ function App() {
   }
 
   return (
-    <main>
+    <main className={`app ${isDark ? "dark" : ""}`}>
       <h1>EchoLingo</h1>
-      <p>Discover a quote. Explore another language.</p>
-
+      <p>Words carry meaning beyond borders</p>
+      <button type="button" onClick={() => setIsDark(!isDark)}>
+        {isDark ? "Light mode" : "Dark mode"}
+      </button>
       <blockquote>
         <p>{quote.text}</p>
         <footer>— {quote.author}</footer>
