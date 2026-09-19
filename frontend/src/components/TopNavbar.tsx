@@ -54,14 +54,14 @@ function Navbar({
           <button type="button" onClick={onRandomQuote} disabled={isLoading}>
             {isLoading ? text.loading : text.randomQuote}
           </button>
-
+          {/* 
           <button type="button" disabled>
             {text.searchAuthor}
-          </button>
+          </button> */}
 
-          <button type="button" disabled>
+          {/* <button type="button" disabled>
             {text.searchTopic}
-          </button>
+          </button> */}
 
           <div className="language-menu">
             <select
