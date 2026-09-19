@@ -1,0 +1,38 @@
+:root {
+  --parchment: #F0CFA7;
+  --cream: #F6D2A0;
+  --wood: #A26537;
+  --walnut: #3D160A;
+  --dark-bg: #120704;
+  --amber: #F4B45C;
+  --gold: #CD843C;
+  --burgundy: #6E1E1E;
+  --green: #3B4305;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+}
+
+h1,
+h2,
+.brand {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.quote {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-weight: 500;
+}
