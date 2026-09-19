@@ -367,7 +367,7 @@
 /* Move the quote lower on phones */
 @media (max-width: 768px) {
   .quote-card {
-    top: 70%;
+    top: 60%;
   }
 }
 }
