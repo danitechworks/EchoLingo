@@ -30,7 +30,7 @@ function App() {
       await translateQuote(newQuote.text, targetLanguage);
     } catch (error) {
       console.error("Could not load a quote:", error);
-      setErrorMessage("Could not load a quote. Please try again.");
+      setErrorMessage(translations[targetLanguage].quoteError);
     } finally {
       setIsLoading(false);
     }
@@ -63,7 +63,8 @@ function App() {
       setTranslatedText(translation.translatedText);
     } catch (error) {
       console.error("Could not translate:", error);
-      setErrorMessage("Could not translate the quote. Please try again.");
+      setErrorMessage("");
+      setTranslatedText("");
     } finally {
       setIsLoading(false);
     }
