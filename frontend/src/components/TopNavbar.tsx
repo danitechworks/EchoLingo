@@ -1,4 +1,5 @@
-import logo from "../assets/images/logo1.png";
+import lightLogo from "../assets/images/logo1.png";
+import darkLogo from "../assets/images/logo-dark.png";
 
 type NavbarProps = {
   isDark: boolean;
@@ -21,7 +22,11 @@ function Navbar({
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <img src={logo} alt="EchoLingo" className="navbar-logo" />
+        <img
+          src={isDark ? darkLogo : lightLogo}
+          alt="EchoLingo"
+          className="navbar-logo"
+        />
       </div>
 
       <div className="navbar-controls">
