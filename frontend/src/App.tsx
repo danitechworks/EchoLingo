@@ -27,6 +27,7 @@ function App() {
       }
       const newQuote = await response.json();
       setQuote(newQuote);
+      await translateQuote(newQuote.text, targetLanguage);
     } catch (error) {
       console.error("Could not load a quote:", error);
       setErrorMessage("Could not load a quote. Please try again.");
@@ -35,11 +36,11 @@ function App() {
     }
   }
 
-  async function translateQuote() {
+  async function translateQuote(text: string, language: Language) {
     setErrorMessage("");
     setTranslatedText("");
 
-    if (targetLanguage === "en") {
+    if (language === "en") {
       return;
     }
 
@@ -51,8 +52,8 @@ function App() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          text: quote.text,
-          targetLanguage: targetLanguage,
+          text: text,
+          targetLanguage: language,
         }),
       });
       if (!response.ok) {
@@ -79,14 +80,20 @@ function App() {
         onRandomQuote={generateQuote}
         onLanguageChange={(value) => {
           setTargetLanguage(value);
-          setTranslatedText("");
-          setErrorMessage("");
+          void translateQuote(quote.text, value);
         }}
       />
 
       <blockquote className="quote-card">
-        <p className="quote">{quote.text}</p>
-        <footer>— {quote.author}</footer>
+        {isLoading ? (
+          <p role="status">{translations[targetLanguage].loading}</p>
+        ) : (
+          <>
+            <p className="quote">{translatedText || quote.text}</p>
+            <footer>— {quote.author}</footer>
+          </>
+        )}
+        {errorMessage && <p role="alert">{errorMessage}</p>}
       </blockquote>
     </main>
   );
