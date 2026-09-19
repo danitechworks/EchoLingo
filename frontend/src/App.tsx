@@ -7,6 +7,21 @@ function App() {
     author: "Unknown",
   });
 
+  async function generateQuote() {
+    try {
+      const response = await fetch("/api/quotes/random");
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch a quote.");
+      }
+
+      const newQuote = await response.json();
+      setQuote(newQuote);
+    } catch (error) {
+      console.error("Could not load a quote:", error);
+    }
+  }
+
   return (
     <main>
       <h1>EchoLingo </h1>
@@ -17,16 +32,8 @@ function App() {
         <footer>— {quote.author}</footer>
       </blockquote>
 
-      <button
-        type="button"
-        onClick={() =>
-          setQuote({
-            text: "The only way to do great work is to love what you do.",
-            author: "Steve Jobs",
-          })
-        }
-      >
-        Generate quote{" "}
+      <button type="button" onClick={generateQuote}>
+        Generate quote
       </button>
     </main>
   );
