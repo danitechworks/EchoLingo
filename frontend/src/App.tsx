@@ -88,18 +88,19 @@ function App() {
           void translateQuote(quote.text, value);
         }}
       />
-
-      <blockquote className="quote-card">
-        {isLoading ? (
-          <p role="status">{translations[targetLanguage].loading}</p>
-        ) : (
-          <>
-            <p className="quote">{translatedText || quote.text}</p>
-            <footer>— {quote.author}</footer>
-          </>
-        )}
-        {errorMessage && <p role="alert">{errorMessage}</p>}
-      </blockquote>
+      <section className="desk-scene">
+        <blockquote className="quote-card">
+          {isLoading ? (
+            <p role="status">{translations[targetLanguage].loading}</p>
+          ) : (
+            <>
+              <p className="quote">{translatedText || quote.text}</p>
+              <footer>— {quote.author}</footer>
+            </>
+          )}
+          {errorMessage && <p role="alert">{errorMessage}</p>}
+        </blockquote>
+      </section>
     </main>
   );
 }
