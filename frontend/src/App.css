@@ -1,5 +1,6 @@
 .app {
   min-height: 100vh;
+  position: relative;
 
   background-image: url("./assets/images/DesktopLight.png");
   background-size: cover;
@@ -11,6 +12,37 @@
   background-image: url("./assets/images/DesktopDark.png");
 }
 
+.quote-card {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(-4deg);
+
+  width: min(42vw, 650px);
+
+  margin: 0;
+  padding: 2rem;
+
+  text-align: center;
+
+  color: var(--walnut);
+  background: transparent;
+  border: none;
+}
+
+.quote-card .quote {
+  font-size: clamp(1.6rem, 2.5vw, 2.8rem);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+.quote-card footer {
+  font-family: "Libre Baskerville", serif;
+  font-size: 0.95rem;
+}
+
 @media (max-width: 768px) {
   .app {
     background-image: url("./assets/images/MobileLight.png");
@@ -19,5 +51,20 @@
 
   .app.dark {
     background-image: url("./assets/images/MobileDark.png");
+  }
+
+  .quote-card {
+    top: 48%;
+    left: 50%;
+
+    width: 58%;
+
+    transform: translate(-50%, -50%) rotate(0deg);
+
+    padding: 1rem;
+  }
+
+  .quote-card .quote {
+    font-size: clamp(1.4rem, 6vw, 2rem);
   }
 }

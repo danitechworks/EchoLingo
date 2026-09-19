@@ -72,8 +72,8 @@ function App() {
       <button type="button" onClick={() => setIsDark(!isDark)}>
         {isDark ? "Light mode" : "Dark mode"}
       </button>
-      <blockquote>
-        <p>{quote.text}</p>
+      <blockquote className="quote-card">
+        <p className="quote">{quote.text}</p>
         <footer>— {quote.author}</footer>
       </blockquote>
 
