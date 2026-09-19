@@ -1,3 +1,6 @@
+using EchoLingo.Services;
+using EchoLingo.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Register the QuoteService for dependency injection
+builder.Services.AddHttpClient<IQuoteService, QuoteService>();
+
+// Register the TranslationService for dependency injection 
+builder.Services.AddHttpClient<ITranslationService, TranslationService>();
 
 var app = builder.Build();
 
