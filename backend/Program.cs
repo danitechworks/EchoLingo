@@ -12,6 +12,9 @@ builder.Services.AddOpenApi();
 // Register the QuoteService for dependency injection
 builder.Services.AddHttpClient<IQuoteService, QuoteService>();
 
+// Register the TranslationService for dependency injection 
+builder.Services.AddHttpClient<ITranslationService, TranslationService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

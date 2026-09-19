@@ -1,6 +1,10 @@
 @EchoLingo_HostAddress = http://localhost:5284
 
-GET {{EchoLingo_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ###
+POST https://localhost:7207/api/translate
+Content-Type: application/json
+
+{
+  "text": "I enjoy learning new languages.",
+  "targetLanguage": "sv"
+}
