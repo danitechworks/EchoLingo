@@ -3,6 +3,7 @@ import Navbar from "./components/TopNavbar";
 import { translations } from "./translations";
 import type { Language } from "./translations";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   const [quote, setQuote] = useState({
@@ -101,6 +102,7 @@ function App() {
           {errorMessage && <p role="alert">{errorMessage}</p>}
         </blockquote>
       </section>
+      <Footer />
     </main>
   );
 }
