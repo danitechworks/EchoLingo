@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import Navbar from "./components/TopNavbar";
 
 function App() {
   const [quote, setQuote] = useState({
@@ -67,6 +68,18 @@ function App() {
 
   return (
     <main className={`app ${isDark ? "dark" : ""}`}>
+      <Navbar
+        isDark={isDark}
+        isLoading={isLoading}
+        targetLanguage={targetLanguage}
+        onToggleDark={() => setIsDark(!isDark)}
+        onRandomQuote={generateQuote}
+        onLanguageChange={(value) => {
+          setTargetLanguage(value);
+          setTranslatedText("");
+          setErrorMessage("");
+        }}
+      />
       <h1>EchoLingo</h1>
       <p>Words carry meaning beyond borders</p>
       <button type="button" onClick={() => setIsDark(!isDark)}>

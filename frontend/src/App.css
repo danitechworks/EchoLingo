@@ -43,6 +43,34 @@
   font-size: 0.95rem;
 }
 
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+
+  background: rgba(61, 22, 10, 0.92);
+  border-bottom: 1px solid var(--gold);
+}
+
+.navbar-logo {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (max-width: 768px) {
   .app {
     background-image: url("./assets/images/MobileLight.png");
