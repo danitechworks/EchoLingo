@@ -1,8 +1,8 @@
 import "./App.css";
-import { useState } from "react";
 import Navbar from "./components/TopNavbar";
 import { translations } from "./translations";
 import type { Language } from "./translations";
+import { useEffect, useState } from "react";
 
 function App() {
   const [quote, setQuote] = useState({
@@ -14,6 +14,10 @@ function App() {
   const [targetLanguage, setTargetLanguage] = useState<Language>("en");
   const [translatedText, setTranslatedText] = useState("");
   const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang = targetLanguage;
+  }, [targetLanguage]);
 
   async function generateQuote() {
     setIsLoading(true);

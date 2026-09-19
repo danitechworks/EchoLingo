@@ -1,6 +1,7 @@
 import lightLogo from "../assets/images/logo1.png";
 import darkLogo from "../assets/images/logo-dark.png";
 import type { InterfaceText, Language } from "../translations";
+import { useState } from "react";
 
 type NavbarProps = {
   text: InterfaceText;
@@ -22,6 +23,8 @@ function Navbar({
   onRandomQuote,
   onLanguageChange,
 }: NavbarProps) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <div className="navbar-top">
@@ -33,7 +36,21 @@ function Navbar({
           />
         </div>
 
-        <div className="navbar-controls">
+        <button
+          type="button"
+          className="navbar-menu-toggle"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="navbar-controls"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? "✕" : "☰"}
+        </button>
+
+        <div
+          id="navbar-controls"
+          className={`navbar-controls ${isMenuOpen ? "is-open" : ""}`}
+        >
           <button type="button" onClick={onRandomQuote} disabled={isLoading}>
             {isLoading ? text.loading : text.randomQuote}
           </button>
