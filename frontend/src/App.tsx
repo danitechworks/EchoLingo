@@ -7,7 +7,13 @@ function App() {
     author: "Unknown",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   async function generateQuote() {
+    setIsLoading(true);
+    setErrorMessage(""); // Clear any previous error message
+
     try {
       const response = await fetch("/api/quotes/random");
 
@@ -19,6 +25,9 @@ function App() {
       setQuote(newQuote);
     } catch (error) {
       console.error("Could not load a quote:", error);
+      setErrorMessage("Could not load a quote. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -32,9 +41,10 @@ function App() {
         <footer>— {quote.author}</footer>
       </blockquote>
 
-      <button type="button" onClick={generateQuote}>
-        Generate quote
+      <button type="button" onClick={generateQuote} disabled={isLoading}>
+        {isLoading ? "Loading..." : "Generate quote"}
       </button>
+      {errorMessage && <p role="alert">{errorMessage}</p>}
     </main>
   );
 }
