@@ -80,55 +80,11 @@ function App() {
           setErrorMessage("");
         }}
       />
-      <h1>EchoLingo</h1>
-      <p>Words carry meaning beyond borders</p>
-      <button type="button" onClick={() => setIsDark(!isDark)}>
-        {isDark ? "Light mode" : "Dark mode"}
-      </button>
+
       <blockquote className="quote-card">
         <p className="quote">{quote.text}</p>
         <footer>— {quote.author}</footer>
       </blockquote>
-
-      <button type="button" onClick={generateQuote} disabled={isLoading}>
-        {isLoading ? "Loading..." : "Generate quote"}
-      </button>
-      {errorMessage && <p role="alert">{errorMessage}</p>}
-
-      <div>
-        <label htmlFor="target-language">Translate into: </label>
-        <select
-          id="target-language"
-          value={targetLanguage}
-          disabled={isLoading}
-          onChange={(event) => {
-            setTargetLanguage(event.target.value);
-            setTranslatedText("");
-            setErrorMessage("");
-          }}
-        >
-          <option value="en">English</option>
-          <option value="sv">Swedish</option>
-          <option value="es">Spanish</option>
-          <option value="fr">French</option>
-          <option value="de">German</option>
-        </select>
-      </div>
-
-      <button
-        type="button"
-        onClick={translateQuote}
-        disabled={isLoading || targetLanguage === "en"}
-      >
-        Translate
-      </button>
-
-      {translatedText && (
-        <section>
-          <h2>Translation</h2>
-          <p>{translatedText}</p>
-        </section>
-      )}
     </main>
   );
 }
