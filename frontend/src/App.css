@@ -1,3 +1,7 @@
+/* =========================
+   BASE STYLES
+   ========================= */
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -207,6 +211,137 @@
   color: var(--cream);
 }
 
+/* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+  position: relative;
+  z-index: 100;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0.9rem 1.5rem;
+
+  background: rgba(240, 207, 167, 0.96);
+  border-top: 1px solid var(--gold);
+
+  color: var(--walnut);
+}
+
+.app.dark .site-footer {
+  background: #2b2523;
+  color: var(--cream);
+
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.footer-content {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1.5rem;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  min-width: 0;
+}
+
+.footer-brand {
+  line-height: 1;
+}
+
+.footer-wordmark {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-wordmark-echo {
+  color: var(--burgundy);
+}
+
+.footer-wordmark-lingo {
+  color: var(--gold);
+}
+
+.app.dark .footer-wordmark-echo {
+  color: var(--cream);
+}
+
+.app.dark .footer-wordmark-lingo {
+  color: var(--amber);
+}
+
+.footer-copy {
+  margin: 0;
+
+  font-family: "Libre Baskerville", serif;
+  font-size: 0.75rem;
+  line-height: 1.5;
+
+  color: inherit;
+}
+
+.footer-dot {
+  margin: 0 0.4rem;
+  color: var(--gold);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+
+  gap: 0.75rem 1rem;
+}
+
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  font-family: "Libre Baskerville", serif;
+  font-size: 0.75rem;
+
+  color: var(--burgundy);
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.footer-links i {
+  font-size: 1rem;
+}
+
+.app.dark .footer-links a {
+  color: var(--cream);
+}
+
+.app.dark .footer-links a:hover {
+  color: var(--amber);
+}
+
+
+/* =========================
+   RESPONSIVE STYLES
+   ========================= */
 /* Tablet */
 
 @media (max-width: 1100px) {
@@ -380,189 +515,4 @@
   }
 }
 
-.site-footer {
-  position: relative;
-  z-index: 100;
-
-  width: 100%;
-  box-sizing: border-box;
-
-  padding: 0.9rem 1.5rem;
-
-  background: rgba(240, 207, 167, 0.96);
-  border-top: 1px solid var(--gold);
-
-  color: var(--walnut);
-}
-
-.app.dark .site-footer {
-  background: #2b2523;
-  color: var(--cream);
-
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.35);
-}
-
-.footer-content {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 1.5rem;
-}
-
-.footer-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-
-  min-width: 0;
-}
-
-.footer-brand {
-  line-height: 1;
-}
-
-.footer-wordmark {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.footer-wordmark-echo {
-  color: var(--burgundy);
-}
-
-.footer-wordmark-lingo {
-  color: var(--gold);
-}
-
-.app.dark .footer-wordmark-echo {
-  color: var(--cream);
-}
-
-.app.dark .footer-wordmark-lingo {
-  color: var(--amber);
-}
-
-.footer-copy {
-  margin: 0;
-
-  font-family: "Libre Baskerville", serif;
-  font-size: 0.75rem;
-  line-height: 1.5;
-
-  color: inherit;
-}
-
-.footer-dot {
-  margin: 0 0.4rem;
-  color: var(--gold);
-}
-
-.footer-links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-
-  gap: 0.75rem 1rem;
-}
-
-.footer-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-
-  font-family: "Libre Baskerville", serif;
-  font-size: 0.75rem;
-
-  color: var(--burgundy);
-  text-decoration: none;
-
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--gold);
-  transform: translateY(-1px);
-}
-
-.footer-links i {
-  font-size: 1rem;
-}
-
-.app.dark .footer-links a {
-  color: var(--cream);
-}
-
-.app.dark .footer-links a:hover {
-  color: var(--amber);
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    gap: 0.8rem;
-  }
-
-  .footer-info {
-    align-items: center;
-  }
-
-  .footer-links {
-    justify-content: center;
-  }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .site-footer {
-    padding: 0.8rem 0.75rem;
-  }
-
-  .footer-wordmark {
-    font-size: 1.35rem;
-  }
-
-  .footer-copy {
-    font-size: 0.68rem;
-  }
-
-  .footer-links {
-    width: 100%;
-    gap: 0.65rem 0.9rem;
-  }
-
-  .footer-links a {
-    font-size: 0.68rem;
-  }
-
-  .footer-links i {
-    font-size: 0.95rem;
-  }
-}
-
-/* Very small phones */
-@media (max-width: 420px) {
-  .footer-links {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-
-    row-gap: 0.65rem;
-    column-gap: 1.1rem;
-  }
-
-  .footer-copy {
-    max-width: 280px;
-  }
-}
 }
