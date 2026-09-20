@@ -1,29 +1,95 @@
 # EchoLingo
 
-EchoLingo is a full-stack quote application that presents a random quote on a responsive desk-and-parchment interface, then translates the quote and interface into the selected language.
+> Quotes that travel across languages.
 
-## Features
+EchoLingo is a full-stack web application that fetches a random quote, presents it on a responsive desk-and-parchment interface, and translates the active quote and interface into the visitor's selected language.
 
-- Random quotes from DummyJSON, requested through an ASP.NET Core API.
-- English, Swedish, Spanish, French, and German interface text.
-- Quote translation through MyMemory.
-- Light and dark desk scenes, with a responsive navigation menu.
-- Loading feedback and localized error messages.
+![EchoLingo preview](frontend/src/assets/images/preview.png)
 
-## Technology
+## Why this project exists
 
-- Backend: ASP.NET Core Web API on .NET 10, C#, controllers, DTOs, dependency injection, `HttpClient`, and async requests.
-- Frontend: React, TypeScript, Vite, and responsive CSS.
+EchoLingo is a compact portfolio project built to practice the parts of full-stack development that sit between a polished interface and external services: API design, service boundaries, dependency injection, asynchronous HTTP calls, DTO mapping, error handling, and responsive React state.
+
+The frontend never calls third-party services directly. The ASP.NET Core API owns those integrations and returns a deliberately small, stable contract to the client.
+
+## Highlights
+
+- Fetches random quotes through a custom .NET 10 API.
+- Translates the active quote into English, Swedish, Spanish, French, or German.
+- Localizes navigation, loading feedback, error messages, footer copy, and accessibility labels alongside quote content.
+- Uses responsive desk scenes for desktop and mobile, with separate light and dark modes.
+- Keeps the quote visually aligned to the parchment, including its desktop angle.
+- Provides loading states and localized, user-friendly errors when an API request fails.
+- Uses semantic HTML and updates the document `lang` attribute when the language changes.
+
+## Architecture
+
+```text
+React + TypeScript client
+        │  /api requests
+        ▼
+ASP.NET Core Web API
+        ├── QuoteService ───────► DummyJSON Quotes
+        └── TranslationService ─► MyMemory
+```
+
+The Vite development server proxies `/api` requests to the backend, which also avoids exposing external-provider implementation details to the browser.
+
+## Tech stack
+
+| Area | Tools and approach |
+| --- | --- |
+| Frontend | React 19, TypeScript, Vite, responsive CSS |
+| Backend | ASP.NET Core Web API on .NET 10 |
+| Application design | Controllers, service layer, interfaces, DTOs, dependency injection |
+| External calls | `IHttpClientFactory`, `HttpClient`, `async`/`await` |
+| Quote source | [DummyJSON Quotes](https://dummyjson.com/docs/quotes) |
+| Translation source | [MyMemory](https://mymemory.translated.net/doc/spec.php) |
+
+## API
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/quotes/random` | Returns a random quote and author. |
+| `POST` | `/api/translate` | Translates supplied text into a requested target language. |
+
+Example translation request:
+
+```json
+{
+  "text": "Small steps lead to progress.",
+  "targetLanguage": "sv"
+}
+```
+
+Example response:
+
+```json
+{
+  "translatedText": "Små steg leder till framsteg."
+}
+```
 
 ## Run locally
 
-Start the backend from the repository root:
+### Prerequisites
+
+- .NET 10 SDK
+- Node.js and npm
+
+### 1. Start the API
+
+From the repository root:
 
 ```powershell
 dotnet run --project .\backend\EchoLingo.csproj
 ```
 
-In a second terminal, start the frontend:
+The default local backend address is `http://localhost:5000`.
+
+### 2. Start the frontend
+
+In a second terminal:
 
 ```powershell
 cd frontend
@@ -31,18 +97,21 @@ npm install
 npm run dev
 ```
 
-Vite serves the frontend at `http://localhost:5173`. Its development proxy targets the backend URL configured in `frontend/vite.config.ts`.
+Open `http://localhost:5173` in a browser. The Vite proxy is configured to forward `/api` requests to `http://localhost:5000`.
 
-## API endpoints
+## Validation
 
-- `GET /api/quotes/random` returns a random quote.
-- `POST /api/translate` accepts `text` and `targetLanguage`, then returns `translatedText`.
+From `frontend`:
 
-## External services
+```powershell
+npm run build
+npm run lint
+```
 
-- [DummyJSON Quotes](https://dummyjson.com/docs/quotes) supplies random quotes.
-- [MyMemory](https://mymemory.translated.net/doc/spec.php) provides translations. Its free service has request and text-size limits.
+## Project status
+
+Version one focuses on random quotes, translation, localization, and a responsive presentation. Author and topic search remain future enhancements; they are intentionally excluded until a dependable quote provider supports those filters without exposing credentials.
 
 ## License
 
-EchoLingo is available under the [MIT License](LICENSE.txt).
+Distributed under the [MIT License](LICENSE.txt). © 2026 Dannell Bayer.
