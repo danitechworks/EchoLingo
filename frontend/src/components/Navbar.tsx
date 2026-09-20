@@ -63,7 +63,9 @@ function Navbar({
           {/* <button type="button" disabled>
             {text.searchTopic}
           </button> */}
-
+          <button type="button" onClick={onToggleDark}>
+            {isDark ? "☀ " + text.lightMode : "☾ " + text.darkMode}
+          </button>
           <div className="language-menu">
             <select
               aria-label={text.selectLanguage}
@@ -80,10 +82,6 @@ function Navbar({
               <option value="de">Deutsch</option>
             </select>
           </div>
-
-          <button type="button" onClick={onToggleDark}>
-            {isDark ? "☀ " + text.lightMode : "☾ " + text.darkMode}
-          </button>
         </div>
       </div>
 
