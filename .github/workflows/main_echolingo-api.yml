@@ -1,0 +1,60 @@
+name: Build and deploy EchoLingo to Azure Web App
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: frontend
+      - name: Build frontend
+        run: npm run build
+        working-directory: frontend
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.x'
+      - name: Publish API
+        run: dotnet publish backend/EchoLingo.csproj -c Release -o ./publish
+      - name: Include frontend in deployment
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path ./publish/wwwroot
+          Copy-Item -Path ./frontend/dist/* -Destination ./publish/wwwroot -Recurse -Force
+      - uses: actions/upload-artifact@v4
+        with:
+          name: .net-app
+          path: ./publish
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: .net-app
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_886F992170D44DE58E3A1B60796B2D40 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E75615D6DC044F8AA5924FB22FE88C12 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_89D0B4621D824B5092E19A894E1028D5 }}
+      - uses: azure/webapps-deploy@v3
+        with:
+          app-name: echolingo-api
+          slot-name: Production
+          package: .
