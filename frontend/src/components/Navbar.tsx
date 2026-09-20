@@ -1,3 +1,4 @@
+import "./Navbar.css";
 import lightLogo from "../assets/images/logo1.png";
 import darkLogo from "../assets/images/logo-dark.png";
 import type { InterfaceText, Language } from "../translations";

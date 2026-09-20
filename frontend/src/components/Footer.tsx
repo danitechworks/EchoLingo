@@ -1,4 +1,5 @@
 import type { InterfaceText } from "../translations";
+import "./Footer.css";
 
 type FooterProps = {
   text: InterfaceText;

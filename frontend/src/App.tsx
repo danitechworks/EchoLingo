@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/TopNavbar";
+import Navbar from "./components/Navbar";
 import { translations } from "./translations";
 import type { Language } from "./translations";
 import { useEffect, useState } from "react";
