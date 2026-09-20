@@ -8,11 +8,21 @@
   position: relative;
   flex: 1;
   min-height: 70vh;
-  background: url("./assets/images/DesktopLight.png") center top / cover no-repeat;
+  background: var(--wood) url("./assets/images/DesktopLight.png") center top / cover no-repeat;
 }
 
-.app.dark .desk-scene {
-  background-image: url("./assets/images/DesktopDark.png");
+/* Keep both themes loaded and retain the light scene beneath the dark layer. */
+.desk-scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/images/DesktopDark.png") center top / cover no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app.dark .desk-scene::before {
+  opacity: 1;
 }
 
 .quote-card {
@@ -55,7 +65,7 @@
     background-image: url("./assets/images/MobileLight.png");
   }
 
-  .app.dark .desk-scene {
+  .desk-scene::before {
     background-image: url("./assets/images/MobileDark.png");
   }
 
