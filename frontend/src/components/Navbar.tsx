@@ -1,6 +1,6 @@
 import "./Navbar.css";
-import lightLogo from "../assets/images/logo1.png";
-import darkLogo from "../assets/images/logo-dark.png";
+import lightLogo from "../assets/images/logo1.webp";
+import darkLogo from "../assets/images/logo-dark.webp";
 import type { InterfaceText, Language } from "../translations";
 import { useState } from "react";
 

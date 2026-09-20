@@ -8,7 +8,7 @@
   position: relative;
   flex: 1;
   min-height: 70vh;
-  background: var(--wood) url("./assets/images/DesktopLight.png") center top / cover no-repeat;
+  background: var(--wood) url("./assets/images/DesktopLight.webp") center top / cover no-repeat;
 }
 
 /* Keep both themes loaded and retain the light scene beneath the dark layer. */
@@ -16,7 +16,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("./assets/images/DesktopDark.png") center top / cover no-repeat;
+  background: url("./assets/images/DesktopDark.webp") center top / cover no-repeat;
   opacity: 0;
   pointer-events: none;
 }
@@ -62,11 +62,11 @@
     width: 100%;
     min-height: 0;
     aspect-ratio: 941 / 1672;
-    background-image: url("./assets/images/MobileLight.png");
+    background-image: url("./assets/images/MobileLight.webp");
   }
 
   .desk-scene::before {
-    background-image: url("./assets/images/MobileDark.png");
+    background-image: url("./assets/images/MobileDark.webp");
   }
 
   .quote-card {
