@@ -9,7 +9,16 @@ export const translations = {
     darkMode: 'Dark',
     tagline: 'Words carry meaning beyond borders',
     quoteError: 'Could not load a quote. Please try again.',
-    translationError: 'Could not translate the quote. Please try again.'
+    translationError: 'Could not translate the quote. Please try again.',
+    designedAndDevelopedBy: 'Designed and developed by',
+    creatorLinks: 'Creator links',
+    portfolio: 'Portfolio',
+    visitPortfolio: "Visit Dannell Bayer's portfolio",
+    visitLinkedIn: 'Visit Dannell Bayer on LinkedIn',
+    visitGitHub: 'Visit Dani on GitHub',
+    visitYouTube: "Visit Dani's IT Desk on YouTube",
+    emailDannell: 'Email Dannell Bayer',
+    email: 'Email'
   },
   sv: {
     randomQuote: 'Slumpmässigt citat',
@@ -21,7 +30,16 @@ export const translations = {
     darkMode: 'Mörkt',
     tagline: 'Ord bär mening över gränser',
     quoteError: 'Kunde inte hämta ett citat. Försök igen.',
-    translationError: 'Kunde inte översätta citatet. Försök igen.'
+    translationError: 'Kunde inte översätta citatet. Försök igen.',
+    designedAndDevelopedBy: 'Designad och utvecklad av',
+    creatorLinks: 'Skaparens länkar',
+    portfolio: 'Portfolio',
+    visitPortfolio: 'Besök Dannell Bayers portfolio',
+    visitLinkedIn: 'Besök Dannell Bayer på LinkedIn',
+    visitGitHub: 'Besök Dani på GitHub',
+    visitYouTube: "Besök Dani's IT Desk på YouTube",
+    emailDannell: 'Mejla Dannell Bayer',
+    email: 'E-post'
   },
   es: {
     randomQuote: 'Cita aleatoria',
@@ -33,7 +51,16 @@ export const translations = {
     darkMode: 'Oscuro',
     tagline: 'Las palabras transmiten significado más allá de las fronteras',
     quoteError: 'No se pudo cargar una cita. Inténtalo de nuevo.',
-    translationError: 'No se pudo traducir la cita. Inténtalo de nuevo.'
+    translationError: 'No se pudo traducir la cita. Inténtalo de nuevo.',
+    designedAndDevelopedBy: 'Diseñado y desarrollado por',
+    creatorLinks: 'Enlaces de la creadora',
+    portfolio: 'Portafolio',
+    visitPortfolio: 'Visita el portafolio de Dannell Bayer',
+    visitLinkedIn: 'Visita a Dannell Bayer en LinkedIn',
+    visitGitHub: 'Visita a Dani en GitHub',
+    visitYouTube: "Visita Dani's IT Desk en YouTube",
+    emailDannell: 'Envía un correo a Dannell Bayer',
+    email: 'Correo'
   },
   fr: {
     randomQuote: 'Citation aléatoire',
@@ -45,7 +72,16 @@ export const translations = {
     darkMode: 'Sombre',
     tagline: 'Les mots portent du sens au-delà des frontières',
     quoteError: 'Impossible de charger une citation. Réessayez.',
-    translationError: 'Impossible de traduire la citation. Réessayez.'
+    translationError: 'Impossible de traduire la citation. Réessayez.',
+    designedAndDevelopedBy: 'Conçu et développé par',
+    creatorLinks: 'Liens de la créatrice',
+    portfolio: 'Portfolio',
+    visitPortfolio: 'Visiter le portfolio de Dannell Bayer',
+    visitLinkedIn: 'Visiter le profil LinkedIn de Dannell Bayer',
+    visitGitHub: 'Visiter Dani sur GitHub',
+    visitYouTube: "Visiter Dani's IT Desk sur YouTube",
+    emailDannell: 'Envoyer un e-mail à Dannell Bayer',
+    email: 'E-mail'
   },
   de: {
     randomQuote: 'Zufälliges Zitat',
@@ -57,7 +93,16 @@ export const translations = {
     darkMode: 'Dunkel',
     tagline: 'Worte tragen Bedeutung über Grenzen hinweg',
     quoteError: 'Ein Zitat konnte nicht geladen werden. Bitte erneut versuchen.',
-    translationError: 'Das Zitat konnte nicht übersetzt werden. Bitte erneut versuchen.'
+    translationError: 'Das Zitat konnte nicht übersetzt werden. Bitte erneut versuchen.',
+    designedAndDevelopedBy: 'Entworfen und entwickelt von',
+    creatorLinks: 'Links der Erstellerin',
+    portfolio: 'Portfolio',
+    visitPortfolio: 'Das Portfolio von Dannell Bayer besuchen',
+    visitLinkedIn: 'Dannell Bayer auf LinkedIn besuchen',
+    visitGitHub: 'Dani auf GitHub besuchen',
+    visitYouTube: "Dani's IT Desk auf YouTube besuchen",
+    emailDannell: 'Dannell Bayer eine E-Mail senden',
+    email: 'E-Mail'
   }
 };
 

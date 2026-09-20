@@ -113,6 +113,7 @@
   height: 42px;
 
   box-sizing: border-box;
+  
 }
 
 /* Buttons */
@@ -210,6 +211,8 @@
 .app.dark .navbar-tagline p {
   color: var(--cream);
 }
+
+
 
 /* =========================
    Footer

@@ -102,7 +102,7 @@ function App() {
           {errorMessage && <p role="alert">{errorMessage}</p>}
         </blockquote>
       </section>
-      <Footer />
+      <Footer text={translations[targetLanguage]} />
     </main>
   );
 }

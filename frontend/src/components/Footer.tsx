@@ -1,4 +1,10 @@
-function Footer() {
+import type { InterfaceText } from "../translations";
+
+type FooterProps = {
+  text: InterfaceText;
+};
+
+function Footer({ text }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -13,7 +19,7 @@ function Footer() {
           </div>
 
           <p className="footer-copy">
-            Designed and developed by Dannell Bayer
+            {text.designedAndDevelopedBy} Dannell Bayer
             <span className="footer-dot" aria-hidden="true">
               &middot;
             </span>
@@ -21,26 +27,24 @@ function Footer() {
           </p>
         </div>
 
-        <nav className="footer-links" aria-label="Creator links">
+        <nav className="footer-links" aria-label={text.creatorLinks}>
           <a
             href="https://dannellbayer.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Dannell Bayer's portfolio"
-            title="Portfolio"
+            aria-label={text.visitPortfolio}
+            title={text.portfolio}
           >
-            <i className="fa-solid fa-globe" aria-hidden="true"></i>
-            <span>Portfolio</span>
+            <span>{text.portfolio}</span>
           </a>
 
           <a
             href="https://www.linkedin.com/in/dannell-bayer"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Dannell Bayer on LinkedIn"
+            aria-label={text.visitLinkedIn}
             title="LinkedIn"
           >
-            <i className="fa-brands fa-linkedin-in" aria-hidden="true"></i>
             <span>LinkedIn</span>
           </a>
 
@@ -48,10 +52,9 @@ function Footer() {
             href="https://github.com/danitechworks"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Dani on GitHub"
+            aria-label={text.visitGitHub}
             title="GitHub"
           >
-            <i className="fa-brands fa-github" aria-hidden="true"></i>
             <span>GitHub</span>
           </a>
 
@@ -59,20 +62,18 @@ function Footer() {
             href="https://www.youtube.com/@DanisITdesk"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Dani's IT Desk on YouTube"
+            aria-label={text.visitYouTube}
             title="YouTube"
           >
-            <i className="fa-brands fa-youtube" aria-hidden="true"></i>
             <span>YouTube</span>
           </a>
 
           <a
             href="mailto:danibayer2003@gmail.com"
-            aria-label="Email Dannell Bayer"
-            title="Email"
+            aria-label={text.emailDannell}
+            title={text.email}
           >
-            <i className="fa-solid fa-envelope" aria-hidden="true"></i>
-            <span>Email</span>
+            <span>{text.email}</span>
           </a>
         </nav>
       </div>
